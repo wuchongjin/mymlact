@@ -6,7 +6,7 @@ name: jd_festival
 on:
   workflow_dispatch:
   schedule:
-    - cron: '40 0 1-8,26-31/1 1,2 *'
+    - cron: '40 15 1-8,26-31/1 1,2 *'
   watch:
     types: [started]
   repository_dispatch:
