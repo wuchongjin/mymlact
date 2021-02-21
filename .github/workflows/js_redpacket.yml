@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东极速版红包🧧】'
+      - name: '运行 【京东全民开红包🧧】'
         run: |
           cd ~/scripts
           node js_redpacket.js

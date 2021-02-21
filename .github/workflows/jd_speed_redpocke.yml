@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_priceProtect
+name: jd_speed_redpocke
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 13 * * *'
+    - cron: '0 16 * * *'
   watch:
     types: [started]
   repository_dispatch:
-    types: priceProtect
+    types: speed_redpocke
 jobs:
   build:
 
@@ -28,10 +28,10 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东价格保护🥇】'
+      - name: '运行 【京东极速版红包🧧】'
         run: |
           cd ~/scripts
-          node jd_price.js
+          node jd_speed_redpocke.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
