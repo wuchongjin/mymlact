@@ -1,4 +1,4 @@
-name: jd_try
+name: xp
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
   watch:
     types: [started]
   repository_dispatch:
-    types: try
+    types: xp
 jobs:
   build:
 
