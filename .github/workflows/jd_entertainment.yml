@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_jump-jump
+name: jd_entertainment
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5 1 22-27 2 *'
+    - cron: '10 10,11 * * 2-5'
   watch:
     types: [started]
   repository_dispatch:
-    types: jump-jump
+    types: entertainment
 jobs:
   build:
 
@@ -28,10 +28,10 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东跳一跳】'
+      - name: '运行 【京东大咖秀✨】'
         run: |
           cd ~/scripts
-          node jd_jump-jump.js
+          node jd_entertainment.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
