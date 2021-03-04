@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京西财富岛👀】'
+      - name: '运行 【京喜财富岛👀】'
         run: |
           cd ~/scripts
           node jd_cfd.js
