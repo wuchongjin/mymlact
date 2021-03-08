@@ -31,7 +31,7 @@ jobs:
       - name: '运行 【京东全民开红包🧧】'
         run: |
           cd ~/scripts
-          node js_redpacket.js
+          node jd_redPacket.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
