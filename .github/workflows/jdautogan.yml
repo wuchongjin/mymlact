@@ -6,7 +6,7 @@ name: jdautogan
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5 0-15/1 30 3 *'
+    - cron: '5 11-15/1 30 3 *'
   watch:
     types: [started]
   repository_dispatch:
