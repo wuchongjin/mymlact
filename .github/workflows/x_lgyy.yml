@@ -6,7 +6,7 @@ name: x_lgyy
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,5,10 * * *'
+    - cron: '0 0,4,8,12 * * *'
   watch:
     types: [started]
   repository_dispatch:
@@ -34,3 +34,5 @@ jobs:
           node x_lgyy.js
         env:
           LGCK: ${{ secrets.LGCK }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
