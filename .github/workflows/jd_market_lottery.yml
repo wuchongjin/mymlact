@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: z_mother_jump
+name: jd_market_lottery
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5 8,14,20 6-13 4 *'
+    - cron: '6 2 * * *'
   watch:
     types: [started]
   repository_dispatch:
-    types: mother_jump
+    types: market_lottery
 jobs:
   build:
 
@@ -28,10 +28,10 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【母婴跳一跳👩🏻‍🦰】'
+      - name: '运行 【Lucky 转盘 🀄】'
         run: |
           cd ~/scripts
-          node z_mother_jump.js
+          node jd_market_lottery.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
