@@ -1,0 +1,47 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: aaa
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 1-15 * * *'
+  watch:
+    types: [started]
+  repository_dispatch:
+    types: aaa
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+      - name: Init Build Dependencies
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo -E rm -rf /etc/apt/sources.list.d
+        sudo -E apt-get update -y && apt-get install -y build-essential git git-core curl wget && apt-get clean -y
+        git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
+
+      - name: Checkout
+        run: |
+          git clone -b  master https://gitee.com/canyian/own_use.git ~/scripts
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【食客江湖】'
+        run: |
+          cd ~/scripts
+          node x_skjh.js
+        env:
+          SKJH: ${{ secrets.SKJH }}
+          DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
+          DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
