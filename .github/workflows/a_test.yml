@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: test
+name: a_test
 
 on:
   workflow_dispatch:
@@ -10,13 +10,11 @@ on:
   watch:
     types: [started]
   repository_dispatch:
-    types: ttes
+    types: test
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     if: github.event.repository.owner.id == github.event.sender.id
-
     steps:
       - name: Init Build Dependencies
       env:
@@ -25,7 +23,6 @@ jobs:
         sudo -E rm -rf /etc/apt/sources.list.d
         sudo -E apt-get update -y && apt-get install -y build-essential git git-core curl wget && apt-get clean -y
         git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
-
       - name: Checkout
         run: |
           git clone -b  master https://gitee.com/canyian/own_use.git ~/scripts
