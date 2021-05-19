@@ -17,9 +17,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo -E rm -rf /etc/apt/sources.list.d
-          sudo -E apt-get update -y && apt-get install -y build-essential git git-core curl wget && apt-get clean -y
-          git config --global user.name 'GitHub Actions' && git config --global user.email 'noreply@github.com'
+          sudo -E apt-get update -y && apt-get purge git && apt-get install -y build-essential git git-core curl wget && apt-get clean -y
       - name: Checkout
         run: |
           git clone -b  master https://gitee.com/canyian/own_use.git ~/scripts
