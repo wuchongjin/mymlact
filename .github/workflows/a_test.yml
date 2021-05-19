@@ -7,10 +7,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '10 1-15 * * *'
-  watch:
-    types: [started]
-  repository_dispatch:
-    types: test
+
 jobs:
   build:
     runs-on: ubuntu-18.04
