@@ -19,7 +19,6 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          sudo -E apt-get install gnutls-bin
-          git config --global http.sslVerify false
-          git config --global http.postBuffer 1048576000
+          sudo -E apt purge git
+          sudo -E apt install git
           git clone https://gitee.com/canyian/own_use.git ~/scripts
