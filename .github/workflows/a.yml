@@ -1,0 +1,25 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: aa
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 16 * * *'
+  watch:
+    types: [started]
+  repository_dispatch:
+    types: a
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          sudo -E apt-get install gnutls-bin
+          git config --global http.sslVerify false
+          git config --global http.postBuffer 1048576000
+          git clone https://gitee.com/canyian/own_use.git ~/scripts
