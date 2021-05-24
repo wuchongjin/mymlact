@@ -6,7 +6,7 @@ name: z_carnivalcity
 on:
   workflow_dispatch:
   schedule:
-    - cron: '2 */6 * * *'
+    - cron: '45 */5 * * *'
   watch:
     types: [started]
   repository_dispatch:
