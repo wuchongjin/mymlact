@@ -30,7 +30,7 @@ jobs:
           npm install
       - name: '运行 【城分现金💴】'
         run: |
-          cd ~/scripts/activity
+          cd ~/scripts
           node jd_city.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
